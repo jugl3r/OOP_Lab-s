@@ -195,15 +195,6 @@ namespace Lab2
 
         static void Main(string[] args)
         {
-            Console.WriteLine("--- Демонстрация создания нескольких объектов с разной информацией ---");
-            BinaryDictionaryTree dict1 = new BinaryDictionaryTree("Словарь технических терминов");
-            BinaryDictionaryTree dict2 = new BinaryDictionaryTree("Словарь медицинских терминов");
-            BinaryDictionaryTree dict3 = new BinaryDictionaryTree(); // конструктор по умолчанию
-            
-            Console.WriteLine("Создан объект: " + dict1.DictionaryName);
-            Console.WriteLine("Создан объект: " + dict2.DictionaryName);
-            Console.WriteLine("Создан объект: " + dict3.DictionaryName);
-            Console.WriteLine("----------------------------------------------------------------------\n");
 
             while (true)
             {
