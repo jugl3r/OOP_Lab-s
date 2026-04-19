@@ -214,9 +214,9 @@ namespace Lab4
                         if (!string.IsNullOrEmpty(s))
                         {
                             char c = s[0];
-                            CharSet result = c + set1;
+                            set1 = c+ set1;
                             Console.Write("Результат (c + set1): ");
-                            result.Print();
+                            set1.Print();
                         }
                         break;
                     case "5":
