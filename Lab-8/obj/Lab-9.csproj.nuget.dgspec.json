@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\amirh\\OOP_Lab-s\\Lab-9\\Lab-9.csproj": {}
+    "C:\\Users\\amirh\\OOP_Lab-s\\Lab-8\\Lab-9.csproj": {}
   },
   "projects": {
-    "C:\\Users\\amirh\\OOP_Lab-s\\Lab-9\\Lab-9.csproj": {
+    "C:\\Users\\amirh\\OOP_Lab-s\\Lab-8\\Lab-9.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\amirh\\OOP_Lab-s\\Lab-9\\Lab-9.csproj",
+        "projectUniqueName": "C:\\Users\\amirh\\OOP_Lab-s\\Lab-8\\Lab-9.csproj",
         "projectName": "Lab-9",
-        "projectPath": "C:\\Users\\amirh\\OOP_Lab-s\\Lab-9\\Lab-9.csproj",
+        "projectPath": "C:\\Users\\amirh\\OOP_Lab-s\\Lab-8\\Lab-9.csproj",
         "packagesPath": "C:\\Users\\amirh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\amirh\\OOP_Lab-s\\Lab-9\\obj\\",
+        "outputPath": "C:\\Users\\amirh\\OOP_Lab-s\\Lab-8\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\amirh\\AppData\\Roaming\\NuGet\\NuGet.Config"
