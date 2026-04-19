@@ -1,0 +1,10 @@
+apple - яблоко
+book - книга
+cat - кошка
+dog - собака
+sun - солнце
+water - вода
+house - дом
+tree - дерево
+flower - цветок
+sky - небо
