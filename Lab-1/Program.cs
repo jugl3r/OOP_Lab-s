@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Variant1
+namespace Lab1
 {
     //  первый класс PostalAddress
     class PostalAddress

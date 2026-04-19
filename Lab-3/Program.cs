@@ -328,16 +328,7 @@ namespace Lab3
 
         static void Main(string[] args)
         {
-            Console.WriteLine("--- Демонстрация создания нескольких объектов с разной информацией ---");
-            MyDataFile1 demoFile1 = new MyDataFile1("users_db", "User Data V1");
-            MyDataFile2 demoFile2 = new MyDataFile2("config_sys", "System Configuration");
-            MyDataFile1 demoFile3 = new MyDataFile1("log_file", "Application Logs");
-
-            currentFolder.AddFile(demoFile1);
-            currentFolder.AddFile(demoFile2);
-            currentFolder.AddFile(demoFile3);
-            Console.WriteLine("----------------------------------------------------------------------\n");
-
+            
             while (true)
             {
                 Console.WriteLine("=== ЛАБОРАТОРНАЯ РАБОТА 3: ФАЙЛОВАЯ СИСТЕМА ===");
