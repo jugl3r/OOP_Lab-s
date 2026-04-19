@@ -18,7 +18,7 @@ namespace Lab4
         // 3. Текущий размер массива
         private int currentSize;
 
-        // Конструктор по умолчанию (с заданием размера)
+        // Конструктор по умолчанию 
         public CharSet(int size = Constants.DEFAULT_MAX_SIZE)
         {
             maxSize = size;
@@ -41,7 +41,7 @@ namespace Lab4
         // Деструктор
         ~CharSet()
         {
-            // В C# сборщик мусора сам очищает память массива, но для выполнения требований ЛР
+            // В C# сборщик мусора сам очищает память массива, но для выполнения требований лабы
             // мы добавили финализатор.
             elements = null;
         }
@@ -76,7 +76,7 @@ namespace Lab4
         // Метод ввода
         public void Input()
         {
-            Console.WriteLine("Введите символы множества подряд (например, abcde). Нажмите Enter для завершения:");
+            Console.WriteLine("Введите символы множества подряд (например, abcde).");
             string input = Console.ReadLine();
             if (input != null)
             {
