@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Variant1
 {
@@ -205,9 +206,11 @@ namespace Variant1
 
     class Program
     {
-        static PostalAddress address;
-        static Money m1;
-        static Money m2;
+        static List<PostalAddress> addresses = new List<PostalAddress>();
+
+        static List<Money> monies = new List<Money>();
+        static int activeMoney1Index = -1;
+        static int activeMoney2Index = -1;
 
         static void Main(string[] args)
         {
@@ -227,25 +230,52 @@ namespace Variant1
             }
         }
 
+        static int SelectAddressIndex()
+        {
+            if (addresses.Count == 0)
+            {
+                Console.WriteLine("Список адресов пуст.");
+                return -1;
+            }
+            Console.WriteLine("Список адресов:");
+            for (int i = 0; i < addresses.Count; i++)
+            {
+                Console.Write(string.Format("{0}. ", i + 1));
+                addresses[i].PrintAddress();
+            }
+            Console.Write(string.Format("Выберите номер адреса (1 - {0}): ", addresses.Count));
+            int index;
+            if (int.TryParse(Console.ReadLine(), out index) && index >= 1 && index <= addresses.Count)
+            {
+                return index - 1;
+            }
+            Console.WriteLine("Неверный номер.");
+            return -1;
+        }
+
         static void AddressMenu()
         {
             while (true)
             {
                 Console.WriteLine("\n--- Меню PostalAddress ---");
-                Console.WriteLine("1. Создать адрес");
-                Console.WriteLine("2. Изменить страну");
-                Console.WriteLine("3. Изменить город");
-                Console.WriteLine("4. Изменить улицу");
-                Console.WriteLine("5. Изменить дом");
-                Console.WriteLine("6. Изменить индекс");
-                Console.WriteLine("7. Вывести адрес");
-                Console.WriteLine("8. Уничтожить адрес");
+                Console.WriteLine(string.Format("Всего адресов: {0}", addresses.Count));
+                
+                Console.WriteLine("1. Создать новый адрес");
+                Console.WriteLine("2. Вывести все адреса");
+                Console.WriteLine("3. Изменить страну адреса");
+                Console.WriteLine("4. Изменить город адреса");
+                Console.WriteLine("5. Изменить улицу адреса");
+                Console.WriteLine("6. Изменить дом адреса");
+                Console.WriteLine("7. Изменить индекс адреса");
+                Console.WriteLine("8. Вывести конкретный адрес");
+                Console.WriteLine("9. Удалить адрес");
                 Console.WriteLine("0. Назад");
                 Console.Write("Выбор: ");
                 string choice = Console.ReadLine();
 
                 if (choice == "0") break;
 
+                int idx;
                 switch (choice)
                 {
                     case "1":
@@ -254,37 +284,50 @@ namespace Variant1
                         Console.Write("Улица: "); string street = Console.ReadLine();
                         Console.Write("Дом: "); string building = Console.ReadLine();
                         Console.Write("Индекс: "); string zip = Console.ReadLine();
-                        address = new PostalAddress(country, city, street, building, zip);
+                        addresses.Add(new PostalAddress(country, city, street, building, zip));
+                        Console.WriteLine("Новый адрес создан.");
                         break;
                     case "2":
-                        if (address == null) { Console.WriteLine("Адрес не создан."); break; }
-                        Console.Write("Новая страна: "); address.Country = Console.ReadLine();
+                        if (addresses.Count == 0) { Console.WriteLine("Список адресов пуст."); break; }
+                        for (int i = 0; i < addresses.Count; i++)
+                        {
+                            Console.Write(string.Format("{0}. ", i + 1));
+                            addresses[i].PrintAddress();
+                        }
                         break;
                     case "3":
-                        if (address == null) { Console.WriteLine("Адрес не создан."); break; }
-                        Console.Write("Новый город: "); address.City = Console.ReadLine();
+                        idx = SelectAddressIndex();
+                        if (idx != -1) { Console.Write("Новая страна: "); addresses[idx].Country = Console.ReadLine(); }
                         break;
                     case "4":
-                        if (address == null) { Console.WriteLine("Адрес не создан."); break; }
-                        Console.Write("Новая улица: "); address.Street = Console.ReadLine();
+                        idx = SelectAddressIndex();
+                        if (idx != -1) { Console.Write("Новый город: "); addresses[idx].City = Console.ReadLine(); }
                         break;
                     case "5":
-                        if (address == null) { Console.WriteLine("Адрес не создан."); break; }
-                        Console.Write("Новый дом: "); address.Building = Console.ReadLine();
+                        idx = SelectAddressIndex();
+                        if (idx != -1) { Console.Write("Новая улица: "); addresses[idx].Street = Console.ReadLine(); }
                         break;
                     case "6":
-                        if (address == null) { Console.WriteLine("Адрес не создан."); break; }
-                        Console.Write("Новый индекс: "); address.ZipCode = Console.ReadLine();
+                        idx = SelectAddressIndex();
+                        if (idx != -1) { Console.Write("Новый дом: "); addresses[idx].Building = Console.ReadLine(); }
                         break;
                     case "7":
-                        if (address == null) { Console.WriteLine("Адрес не создан."); break; }
-                        address.PrintAddress();
+                        idx = SelectAddressIndex();
+                        if (idx != -1) { Console.Write("Новый индекс: "); addresses[idx].ZipCode = Console.ReadLine(); }
                         break;
                     case "8":
-                        address = null;
-                        GC.Collect();
-                        GC.WaitForPendingFinalizers();
-                        Console.WriteLine("Ссылка на адрес удалена. Сборщик мусора вызван.");
+                        idx = SelectAddressIndex();
+                        if (idx != -1) { addresses[idx].PrintAddress(); }
+                        break;
+                    case "9":
+                        idx = SelectAddressIndex();
+                        if (idx != -1) 
+                        { 
+                            addresses.RemoveAt(idx);
+                            GC.Collect();
+                            GC.WaitForPendingFinalizers();
+                            Console.WriteLine("Адрес удален из списка.");
+                        }
                         break;
                     default:
                         Console.WriteLine("Неверный ввод.");
@@ -293,9 +336,9 @@ namespace Variant1
             }
         }
 
-        static Money ReadMoney(string name)
+        static Money ReadMoney()
         {
-            Console.WriteLine(string.Format("Ввод суммы {0}:", name));
+            Console.WriteLine("Ввод новой суммы:");
             Console.Write("Рубли (целое): ");
             long r = long.Parse(Console.ReadLine());
             Console.Write("Копейки (целое): ");
@@ -305,22 +348,27 @@ namespace Variant1
 
         static void MoneyMenu()
         {
-            if (m1 == null) m1 = new Money(0, 0);
-            if (m2 == null) m2 = new Money(0, 0);
-
             while (true)
             {
                 Console.WriteLine("\n--- Меню Money ---");
-                Console.WriteLine(string.Format("Сумма 1: {0}", m1));
-                Console.WriteLine(string.Format("Сумма 2: {0}", m2));
-                Console.WriteLine("1. Ввести Сумму 1");
-                Console.WriteLine("2. Ввести Сумму 2");
-                Console.WriteLine("3. Сложение (Сумма 1 + Сумма 2)");
-                Console.WriteLine("4. Вычитание (Сумма 1 - Сумма 2)");
-                Console.WriteLine("5. Деление сумм (Сумма 1 / Сумма 2)");
-                Console.WriteLine("6. Умножение Суммы 1 на дробное число");
-                Console.WriteLine("7. Деление Суммы 1 на дробное число");
-                Console.WriteLine("8. Сравнить суммы");
+                Console.WriteLine(string.Format("Всего сумм: {0}", monies.Count));
+                
+                string m1Str = (activeMoney1Index >= 0 && activeMoney1Index < monies.Count) ? string.Format("№{0} ({1})", activeMoney1Index + 1, monies[activeMoney1Index]) : "не выбрана";
+                string m2Str = (activeMoney2Index >= 0 && activeMoney2Index < monies.Count) ? string.Format("№{0} ({1})", activeMoney2Index + 1, monies[activeMoney2Index]) : "не выбрана";
+                
+                Console.WriteLine(string.Format("Выбранная Сумма 1: {0}", m1Str));
+                Console.WriteLine(string.Format("Выбранная Сумма 2: {0}", m2Str));
+                
+                Console.WriteLine("1. Создать новую сумму");
+                Console.WriteLine("2. Вывести все суммы");
+                Console.WriteLine("3. Выбрать Сумму 1");
+                Console.WriteLine("4. Выбрать Сумму 2");
+                Console.WriteLine("5. Сложение (Сумма 1 + Сумма 2)");
+                Console.WriteLine("6. Вычитание (Сумма 1 - Сумма 2)");
+                Console.WriteLine("7. Деление сумм (Сумма 1 / Сумма 2)");
+                Console.WriteLine("8. Умножение Суммы 1 на дробное число");
+                Console.WriteLine("9. Деление Суммы 1 на дробное число");
+                Console.WriteLine("10. Сравнить суммы 1 и 2");
                 Console.WriteLine("0. Назад");
                 Console.Write("Выбор: ");
                 string choice = Console.ReadLine();
@@ -331,25 +379,66 @@ namespace Variant1
                 {
                     switch (choice)
                     {
-                        case "1": m1 = ReadMoney("1"); break;
-                        case "2": m2 = ReadMoney("2"); break;
-                        case "3": Console.WriteLine(string.Format("Результат: {0}", m1 + m2)); break;
-                        case "4": Console.WriteLine(string.Format("Результат: {0}", m1 - m2)); break;
-                        case "5": Console.WriteLine(string.Format("Результат: {0:F4}", m1 / m2)); break;
-                        case "6":
-                            Console.Write("Введите число: ");
-                            double mul = double.Parse(Console.ReadLine());
-                            Console.WriteLine(string.Format("Результат: {0}", m1 * mul));
+                        case "1": 
+                            monies.Add(ReadMoney()); 
+                            if (activeMoney1Index == -1) activeMoney1Index = monies.Count - 1;
+                            else if (activeMoney2Index == -1) activeMoney2Index = monies.Count - 1;
+                            Console.WriteLine("Новая сумма добавлена в список.");
                             break;
-                        case "7":
-                            Console.Write("Введите число: ");
-                            double div = double.Parse(Console.ReadLine());
-                            Console.WriteLine(string.Format("Результат: {0}", m1 / div));
+                        case "2":
+                            if (monies.Count == 0) { Console.WriteLine("Список сумм пуст."); break; }
+                            for (int i = 0; i < monies.Count; i++)
+                            {
+                                Console.WriteLine(string.Format("{0}. {1}", i + 1, monies[i]));
+                            }
+                            break;
+                        case "3":
+                            if (monies.Count == 0) { Console.WriteLine("Список пуст."); break; }
+                            Console.Write(string.Format("Введите номер для Суммы 1 (1 - {0}): ", monies.Count));
+                            int idx1;
+                            if (int.TryParse(Console.ReadLine(), out idx1) && idx1 >= 1 && idx1 <= monies.Count)
+                                activeMoney1Index = idx1 - 1;
+                            else Console.WriteLine("Неверный номер.");
+                            break;
+                        case "4":
+                            if (monies.Count == 0) { Console.WriteLine("Список пуст."); break; }
+                            Console.Write(string.Format("Введите номер для Суммы 2 (1 - {0}): ", monies.Count));
+                            int idx2;
+                            if (int.TryParse(Console.ReadLine(), out idx2) && idx2 >= 1 && idx2 <= monies.Count)
+                                activeMoney2Index = idx2 - 1;
+                            else Console.WriteLine("Неверный номер.");
+                            break;
+                        case "5": 
+                            if (activeMoney1Index < 0 || activeMoney2Index < 0) { Console.WriteLine("Выберите обе суммы."); break; }
+                            Console.WriteLine(string.Format("Результат: {0}", monies[activeMoney1Index] + monies[activeMoney2Index])); 
+                            break;
+                        case "6": 
+                            if (activeMoney1Index < 0 || activeMoney2Index < 0) { Console.WriteLine("Выберите обе суммы."); break; }
+                            Console.WriteLine(string.Format("Результат: {0}", monies[activeMoney1Index] - monies[activeMoney2Index])); 
+                            break;
+                        case "7": 
+                            if (activeMoney1Index < 0 || activeMoney2Index < 0) { Console.WriteLine("Выберите обе суммы."); break; }
+                            Console.WriteLine(string.Format("Результат: {0:F4}", monies[activeMoney1Index] / monies[activeMoney2Index])); 
                             break;
                         case "8":
-                            Console.WriteLine(string.Format("Сумма 1 > Сумма 2: {0}", m1 > m2));
-                            Console.WriteLine(string.Format("Сумма 1 < Сумма 2: {0}", m1 < m2));
-                            Console.WriteLine(string.Format("Сумма 1 == Сумма 2: {0}", m1 == m2));
+                            if (activeMoney1Index < 0) { Console.WriteLine("Сумма 1 не выбрана."); break; }
+                            Console.Write("Введите число: ");
+                            double mul = double.Parse(Console.ReadLine());
+                            Console.WriteLine(string.Format("Результат: {0}", monies[activeMoney1Index] * mul));
+                            break;
+                        case "9":
+                            if (activeMoney1Index < 0) { Console.WriteLine("Сумма 1 не выбрана."); break; }
+                            Console.Write("Введите число: ");
+                            double div = double.Parse(Console.ReadLine());
+                            Console.WriteLine(string.Format("Результат: {0}", monies[activeMoney1Index] / div));
+                            break;
+                        case "10":
+                            if (activeMoney1Index < 0 || activeMoney2Index < 0) { Console.WriteLine("Выберите обе суммы."); break; }
+                            Money a = monies[activeMoney1Index];
+                            Money b = monies[activeMoney2Index];
+                            Console.WriteLine(string.Format("Сумма 1 > Сумма 2: {0}", a > b));
+                            Console.WriteLine(string.Format("Сумма 1 < Сумма 2: {0}", a < b));
+                            Console.WriteLine(string.Format("Сумма 1 == Сумма 2: {0}", a == b));
                             break;
                         default: Console.WriteLine("Неверный ввод."); break;
                     }
