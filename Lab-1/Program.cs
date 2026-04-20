@@ -12,16 +12,6 @@ namespace Lab1
         public string Building { get; set; }
         public string ZipCode { get; set; }
 
-        // Конструктор по умолчанию
-        public PostalAddress()
-        {
-            Country = "Неизвестно";
-            City = "Неизвестно";
-            Street = "Неизвестно";
-            Building = "Неизвестно";
-            ZipCode = "000000";
-            Console.WriteLine("Создан объект PostalAddress (по умолчанию).");
-        }
 
         // Конструктор с параметрами
         public PostalAddress(string country, string city, string street, string building, string zipCode)
@@ -123,7 +113,7 @@ namespace Lab1
             long totalKopecks2 = b.rubles * 100 + b.kopecks;
             if (totalKopecks1 < totalKopecks2)
                 throw new InvalidOperationException("Отрицательная сумма недопустима (вычитаемое больше уменьшаемого).");
-            
+
             long result = totalKopecks1 - totalKopecks2;
             return new Money(result / 100, (byte)(result % 100));
         }
@@ -259,7 +249,7 @@ namespace Lab1
             {
                 Console.WriteLine("\n--- Меню PostalAddress ---");
                 Console.WriteLine(string.Format("Всего адресов: {0}", addresses.Count));
-                
+
                 Console.WriteLine("1. Создать новый адрес");
                 Console.WriteLine("2. Вывести все адреса");
                 Console.WriteLine("3. Изменить страну адреса");
@@ -321,8 +311,8 @@ namespace Lab1
                         break;
                     case "9":
                         idx = SelectAddressIndex();
-                        if (idx != -1) 
-                        { 
+                        if (idx != -1)
+                        {
                             addresses.RemoveAt(idx);
                             GC.Collect();
                             GC.WaitForPendingFinalizers();
@@ -352,13 +342,13 @@ namespace Lab1
             {
                 Console.WriteLine("\n--- Меню Money ---");
                 Console.WriteLine(string.Format("Всего сумм: {0}", monies.Count));
-                
+
                 string m1Str = (activeMoney1Index >= 0 && activeMoney1Index < monies.Count) ? string.Format("№{0} ({1})", activeMoney1Index + 1, monies[activeMoney1Index]) : "не выбрана";
                 string m2Str = (activeMoney2Index >= 0 && activeMoney2Index < monies.Count) ? string.Format("№{0} ({1})", activeMoney2Index + 1, monies[activeMoney2Index]) : "не выбрана";
-                
+
                 Console.WriteLine(string.Format("Выбранная Сумма 1: {0}", m1Str));
                 Console.WriteLine(string.Format("Выбранная Сумма 2: {0}", m2Str));
-                
+
                 Console.WriteLine("1. Создать новую сумму");
                 Console.WriteLine("2. Вывести все суммы");
                 Console.WriteLine("3. Выбрать Сумму 1");
@@ -379,8 +369,8 @@ namespace Lab1
                 {
                     switch (choice)
                     {
-                        case "1": 
-                            monies.Add(ReadMoney()); 
+                        case "1":
+                            monies.Add(ReadMoney());
                             if (activeMoney1Index == -1) activeMoney1Index = monies.Count - 1;
                             else if (activeMoney2Index == -1) activeMoney2Index = monies.Count - 1;
                             Console.WriteLine("Новая сумма добавлена в список.");
@@ -408,17 +398,17 @@ namespace Lab1
                                 activeMoney2Index = idx2 - 1;
                             else Console.WriteLine("Неверный номер.");
                             break;
-                        case "5": 
+                        case "5":
                             if (activeMoney1Index < 0 || activeMoney2Index < 0) { Console.WriteLine("Выберите обе суммы."); break; }
-                            Console.WriteLine(string.Format("Результат: {0}", monies[activeMoney1Index] + monies[activeMoney2Index])); 
+                            Console.WriteLine(string.Format("Результат: {0}", monies[activeMoney1Index] + monies[activeMoney2Index]));
                             break;
-                        case "6": 
+                        case "6":
                             if (activeMoney1Index < 0 || activeMoney2Index < 0) { Console.WriteLine("Выберите обе суммы."); break; }
-                            Console.WriteLine(string.Format("Результат: {0}", monies[activeMoney1Index] - monies[activeMoney2Index])); 
+                            Console.WriteLine(string.Format("Результат: {0}", monies[activeMoney1Index] - monies[activeMoney2Index]));
                             break;
-                        case "7": 
+                        case "7":
                             if (activeMoney1Index < 0 || activeMoney2Index < 0) { Console.WriteLine("Выберите обе суммы."); break; }
-                            Console.WriteLine(string.Format("Результат: {0:F4}", monies[activeMoney1Index] / monies[activeMoney2Index])); 
+                            Console.WriteLine(string.Format("Результат: {0:F4}", monies[activeMoney1Index] / monies[activeMoney2Index]));
                             break;
                         case "8":
                             if (activeMoney1Index < 0) { Console.WriteLine("Сумма 1 не выбрана."); break; }
