@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\amirh\\OOP_Lab-s\\Lab-7\\Lab-7.csproj": {}
+    "/Users/amir/studying/1_kurs/2_semestr/ООП/OOP_Lab-s/Lab-7/Lab-7.csproj": {}
   },
   "projects": {
-    "C:\\Users\\amirh\\OOP_Lab-s\\Lab-7\\Lab-7.csproj": {
+    "/Users/amir/studying/1_kurs/2_semestr/ООП/OOP_Lab-s/Lab-7/Lab-7.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\amirh\\OOP_Lab-s\\Lab-7\\Lab-7.csproj",
+        "projectUniqueName": "/Users/amir/studying/1_kurs/2_semestr/ООП/OOP_Lab-s/Lab-7/Lab-7.csproj",
         "projectName": "Lab-7",
-        "projectPath": "C:\\Users\\amirh\\OOP_Lab-s\\Lab-7\\Lab-7.csproj",
-        "packagesPath": "C:\\Users\\amirh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\amirh\\OOP_Lab-s\\Lab-7\\obj\\",
+        "projectPath": "/Users/amir/studying/1_kurs/2_semestr/ООП/OOP_Lab-s/Lab-7/Lab-7.csproj",
+        "packagesPath": "/Users/amir/.nuget/packages/",
+        "outputPath": "/Users/amir/studying/1_kurs/2_semestr/ООП/OOP_Lab-s/Lab-7/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\amirh\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/amir/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -59,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.202/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.201/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

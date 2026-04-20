@@ -32,12 +32,6 @@ namespace Lab2
             root = null;
         }
 
-        // Конструктор по умолчанию
-        public BinaryDictionaryTree()
-        {
-            DictionaryName = "Безымянный словарь";
-            root = null;
-        }
 
         public void Add(string eng, string rus)
         {
@@ -98,7 +92,7 @@ namespace Lab2
             eng = eng.ToLower();
             DictionaryNode parent = null;
             DictionaryNode current = root;
-            
+
             while (current != null)
             {
                 int cmp = string.Compare(eng, current.EnglishWord);
@@ -206,7 +200,7 @@ namespace Lab2
                 Console.WriteLine("5. Загрузить словарь из файла");
                 Console.WriteLine("0. Выход");
                 Console.Write("Выбор: ");
-                
+
                 string choice = Console.ReadLine();
 
                 if (choice == "0") break;
@@ -290,7 +284,7 @@ namespace Lab2
                 foreach (string line in lines)
                 {
                     if (string.IsNullOrWhiteSpace(line)) continue;
-                    
+
                     string[] parts = line.Split(new char[] { '-' }, 2);
                     if (parts.Length == 2)
                     {
