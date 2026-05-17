@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\amirh\\OOP_Lab-s\\Lab-5\\Lab-5.csproj",
-      "projectName": "Lab-5",
-      "projectPath": "C:\\Users\\amirh\\OOP_Lab-s\\Lab-5\\Lab-5.csproj",
+      "projectUniqueName": "C:\\Users\\amirh\\oop-labs-antigrabity\\lab-5\\lab-5.csproj",
+      "projectName": "lab-5",
+      "projectPath": "C:\\Users\\amirh\\oop-labs-antigrabity\\lab-5\\lab-5.csproj",
       "packagesPath": "C:\\Users\\amirh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\amirh\\OOP_Lab-s\\Lab-5\\obj\\",
+      "outputPath": "C:\\Users\\amirh\\oop-labs-antigrabity\\lab-5\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\amirh\\AppData\\Roaming\\NuGet\\NuGet.Config"

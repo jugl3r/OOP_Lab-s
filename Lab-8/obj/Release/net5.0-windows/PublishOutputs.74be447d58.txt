@@ -1,0 +1,5 @@
+C:\Users\amirh\oop-labs-antigrabity\lab-8\Exe-App\lab-8.exe
+C:\Users\amirh\oop-labs-antigrabity\lab-8\Exe-App\lab-8.dll
+C:\Users\amirh\oop-labs-antigrabity\lab-8\Exe-App\lab-8.deps.json
+C:\Users\amirh\oop-labs-antigrabity\lab-8\Exe-App\lab-8.runtimeconfig.json
+C:\Users\amirh\oop-labs-antigrabity\lab-8\Exe-App\lab-8.pdb

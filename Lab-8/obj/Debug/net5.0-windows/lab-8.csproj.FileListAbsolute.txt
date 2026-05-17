@@ -1,0 +1,16 @@
+C:\Users\amirh\oop-labs-antigrabity\lab-8\bin\Debug\net5.0-windows\lab-8.exe
+C:\Users\amirh\oop-labs-antigrabity\lab-8\bin\Debug\net5.0-windows\lab-8.deps.json
+C:\Users\amirh\oop-labs-antigrabity\lab-8\bin\Debug\net5.0-windows\lab-8.runtimeconfig.json
+C:\Users\amirh\oop-labs-antigrabity\lab-8\bin\Debug\net5.0-windows\lab-8.runtimeconfig.dev.json
+C:\Users\amirh\oop-labs-antigrabity\lab-8\bin\Debug\net5.0-windows\lab-8.dll
+C:\Users\amirh\oop-labs-antigrabity\lab-8\bin\Debug\net5.0-windows\ref\lab-8.dll
+C:\Users\amirh\oop-labs-antigrabity\lab-8\bin\Debug\net5.0-windows\lab-8.pdb
+C:\Users\amirh\oop-labs-antigrabity\lab-8\obj\Debug\net5.0-windows\lab-8.csproj.AssemblyReference.cache
+C:\Users\amirh\oop-labs-antigrabity\lab-8\obj\Debug\net5.0-windows\lab-8.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\amirh\oop-labs-antigrabity\lab-8\obj\Debug\net5.0-windows\lab-8.AssemblyInfoInputs.cache
+C:\Users\amirh\oop-labs-antigrabity\lab-8\obj\Debug\net5.0-windows\lab-8.AssemblyInfo.cs
+C:\Users\amirh\oop-labs-antigrabity\lab-8\obj\Debug\net5.0-windows\lab-8.csproj.CoreCompileInputs.cache
+C:\Users\amirh\oop-labs-antigrabity\lab-8\obj\Debug\net5.0-windows\lab-8.dll
+C:\Users\amirh\oop-labs-antigrabity\lab-8\obj\Debug\net5.0-windows\ref\lab-8.dll
+C:\Users\amirh\oop-labs-antigrabity\lab-8\obj\Debug\net5.0-windows\lab-8.pdb
+C:\Users\amirh\oop-labs-antigrabity\lab-8\obj\Debug\net5.0-windows\lab-8.genruntimeconfig.cache

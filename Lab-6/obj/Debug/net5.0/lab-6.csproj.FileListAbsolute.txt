@@ -1,0 +1,16 @@
+C:\Users\amirh\oop-labs-antigrabity\lab-6\bin\Debug\net5.0\lab-6.exe
+C:\Users\amirh\oop-labs-antigrabity\lab-6\bin\Debug\net5.0\lab-6.deps.json
+C:\Users\amirh\oop-labs-antigrabity\lab-6\bin\Debug\net5.0\lab-6.runtimeconfig.json
+C:\Users\amirh\oop-labs-antigrabity\lab-6\bin\Debug\net5.0\lab-6.runtimeconfig.dev.json
+C:\Users\amirh\oop-labs-antigrabity\lab-6\bin\Debug\net5.0\lab-6.dll
+C:\Users\amirh\oop-labs-antigrabity\lab-6\bin\Debug\net5.0\ref\lab-6.dll
+C:\Users\amirh\oop-labs-antigrabity\lab-6\bin\Debug\net5.0\lab-6.pdb
+C:\Users\amirh\oop-labs-antigrabity\lab-6\obj\Debug\net5.0\lab-6.csproj.AssemblyReference.cache
+C:\Users\amirh\oop-labs-antigrabity\lab-6\obj\Debug\net5.0\lab-6.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\amirh\oop-labs-antigrabity\lab-6\obj\Debug\net5.0\lab-6.AssemblyInfoInputs.cache
+C:\Users\amirh\oop-labs-antigrabity\lab-6\obj\Debug\net5.0\lab-6.AssemblyInfo.cs
+C:\Users\amirh\oop-labs-antigrabity\lab-6\obj\Debug\net5.0\lab-6.csproj.CoreCompileInputs.cache
+C:\Users\amirh\oop-labs-antigrabity\lab-6\obj\Debug\net5.0\lab-6.dll
+C:\Users\amirh\oop-labs-antigrabity\lab-6\obj\Debug\net5.0\ref\lab-6.dll
+C:\Users\amirh\oop-labs-antigrabity\lab-6\obj\Debug\net5.0\lab-6.pdb
+C:\Users\amirh\oop-labs-antigrabity\lab-6\obj\Debug\net5.0\lab-6.genruntimeconfig.cache
